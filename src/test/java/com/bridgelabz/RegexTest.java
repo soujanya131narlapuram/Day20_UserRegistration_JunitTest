@@ -41,5 +41,13 @@ public class RegexTest {
         valid = Regex.mobileNumberValidation("7894789056890789458");
         Assertions.assertEquals(false, valid);
     }
+    @Test
+    public void testCaseValidatePassword(){
+        boolean valid = Regex.passwordValidation("hdhysdhyuwh$1");
+        Assertions.assertEquals(false, valid);
+
+        valid = Regex.passwordValidation("gydyug");
+        Assertions.assertEquals(false, valid);
+    }
 
 }
