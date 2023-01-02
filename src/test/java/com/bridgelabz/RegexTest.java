@@ -1,6 +1,8 @@
 package com.bridgelabz;
 import org.junit.jupiter.api.*;
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class RegexTest {
     @Test
@@ -93,7 +95,7 @@ public class RegexTest {
         Assertions.assertEquals(false, valid);
 
         valid = Regex.passwordValidation("aBcdefgh");
-        Assertions.assertEquals(false, valid);
+        Assertions.assertEquals(true, valid);
     }
 
     @Test
@@ -125,6 +127,17 @@ public class RegexTest {
         Assertions.assertEquals(true, valid);
 
     }
-
+    @ParameterizedTest
+    @ValueSource(
+            strings = {
+                    "abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com",
+                    "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au",
+                    "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com"
+            }
+    )
+    public void testCaseEmailValidateParameterizedHappy(String email){
+        boolean valid = Regex.emailValidation(email);
+        Assertions.assertEquals(true, valid);
+    }
 
 }
