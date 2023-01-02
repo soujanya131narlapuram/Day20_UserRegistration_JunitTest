@@ -60,19 +60,19 @@ public class Regex {
         }
     }
     static boolean passwordValidation(String password){
-        Pattern pattern = Pattern.compile("^(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[A-Z])(?=.*[0-9])(?=.{8,}).*$");
+        Pattern pattern = Pattern.compile("^[A-Za-z0-9@#$%^&+!=]{8,}");
         Matcher matcher = pattern.matcher(password);
         boolean matchFound = matcher.matches();
 
-        pattern = Pattern.compile("^[A-Za-z0-9]*[@#$%^&+!=]{1}[A-Za-z0-9]*$");
-        matcher = pattern.matcher(password);
+        //pattern = Pattern.compile("^[A-Za-z0-9]*[@#$%^&+!=]{1}[A-Za-z0-9]*$");
+        //matcher = pattern.matcher(password);
 
-        int count = 0;
-        while (matcher.find()) {
-            count++;
-        }
+//        int count = 0;
+//        while (matcher.find()) {
+//            count++;
+//        }
 
-        if(matchFound && count==1){
+        if(matchFound ){
             System.out.println("Password " + password + " is having valid pattern");
             return true;
         } else {
