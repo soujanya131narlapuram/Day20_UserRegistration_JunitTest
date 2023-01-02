@@ -46,8 +46,8 @@ public class RegexTest {
         boolean valid = Regex.passwordValidation("Abcde2ghg");
         Assertions.assertEquals(true, valid);
 
-        valid = Regex.passwordValidation("aBcdefgh23");
-        Assertions.assertEquals(true, valid);
+        valid = Regex.passwordValidation("aBcdefgh");
+        Assertions.assertEquals(false, valid);
     }
 
 
