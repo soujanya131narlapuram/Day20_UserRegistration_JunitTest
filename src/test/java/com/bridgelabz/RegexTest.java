@@ -29,10 +29,17 @@ public class RegexTest {
         boolean valid = Regex.emailValidation("souju@gmail.com");
         Assertions.assertEquals(false, valid);
 
-        valid = Regex.lastNameValidation("koli@123");
+        valid = Regex.emailValidation("koli@123");
         Assertions.assertEquals(false, valid);
     }
 
+    @Test
+    public void testCaseValidateMobileNumber(){
+        boolean valid = Regex.mobileNumberValidation("91 7382573349");
+        Assertions.assertEquals(true, valid);
 
+        valid = Regex.mobileNumberValidation("7894789056890789458");
+        Assertions.assertEquals(false, valid);
+    }
 
 }
