@@ -26,11 +26,57 @@ public class RegexTest {
 
     @Test
     public void testCaseValidateEmail(){
-        boolean valid = Regex.emailValidation("souju@gmail.com");
-        Assertions.assertEquals(false, valid);
+        boolean valid = Regex.emailValidation("soujanya@gmail.com");
+        Assertions.assertEquals(true, valid);
+         valid =Regex.emailValidation("abc@yahoo.com");
+        Assertions.assertEquals(true, valid);
+         valid =Regex.emailValidation("abc-100@yahoo.com");
+        Assertions.assertEquals(true, valid);
+         valid =Regex.emailValidation("abc.100@yahoo.com");
+        Assertions.assertEquals(true, valid);
+         valid =Regex.emailValidation("abc111@abc.com");
+        Assertions.assertEquals(true, valid);
+         valid =Regex.emailValidation("abc-100@abc.net");
+        Assertions.assertEquals(true, valid);
+         valid =Regex.emailValidation("abc.100@abc.com.au");
+        Assertions.assertEquals(true, valid);
+       valid= Regex.emailValidation("abc@1.com");
+        Assertions.assertEquals(true, valid);
+        valid = Regex.emailValidation("abc@gmail.com.com");
+        Assertions.assertEquals(true, valid);
+        valid=Regex.emailValidation("abc+100@gmail.com");
+        Assertions.assertEquals(true, valid);
+
+
 
         valid = Regex.emailValidation("koli@123");
         Assertions.assertEquals(false, valid);
+        valid = Regex.emailValidation("abc");
+        Assertions.assertEquals(false, valid);
+//        valid = Regex.emailValidation("abc@.com.my");
+//        Assertions.assertEquals(false, valid);
+        valid = Regex.emailValidation("abc123@gmail.a");
+        Assertions.assertEquals(false, valid);
+        valid = Regex.emailValidation("abc123@.com");
+        Assertions.assertEquals(false, valid);
+//        valid = Regex.emailValidation("abc123@.com.com");
+//        Assertions.assertEquals(false, valid);
+//        valid =  Regex.emailValidation(".abc@abc.com");
+//        Assertions.assertEquals(false, valid);
+        valid = Regex.emailValidation("abc()*@gmail.com");
+        Assertions.assertEquals(false, valid);
+        valid = Regex.emailValidation("abc@%*.com");
+        Assertions.assertEquals(false, valid);
+//        valid = Regex.emailValidation("abc..2002@gmail.com");
+//        Assertions.assertEquals(false, valid);
+//        valid =  Regex.emailValidation("abc.@gmail.com");
+//        Assertions.assertEquals(false, valid);
+        valid = Regex.emailValidation("abc@abc@abc@gmail.com");
+        Assertions.assertEquals(false, valid);
+        valid =  Regex.emailValidation("abc@gmail.com.1a");
+        Assertions.assertEquals(false, valid);
+//        valid = Regex.emailValidation("abc@gmail.com.aa.au");
+//        Assertions.assertEquals(false, valid);
     }
 
     @Test
