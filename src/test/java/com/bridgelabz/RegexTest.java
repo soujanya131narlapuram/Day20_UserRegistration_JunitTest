@@ -43,11 +43,11 @@ public class RegexTest {
     }
     @Test
     public void testCaseValidatePassword(){
-        boolean valid = Regex.passwordValidation("abcdefgh");
+        boolean valid = Regex.passwordValidation("Abcde2ghg");
         Assertions.assertEquals(true, valid);
 
-        valid = Regex.passwordValidation("gydyug");
-        Assertions.assertEquals(false, valid);
+        valid = Regex.passwordValidation("aBcdefgh23");
+        Assertions.assertEquals(true, valid);
     }
 
 
