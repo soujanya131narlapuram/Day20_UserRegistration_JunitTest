@@ -24,6 +24,15 @@ public class RegexTest {
         Assertions.assertEquals(true, valid);
     }
 
+    @Test
+    public void testCaseValidateEmail(){
+        boolean valid = Regex.emailValidation("souju@gmail.com");
+        Assertions.assertEquals(false, valid);
+
+        valid = Regex.lastNameValidation("koli@123");
+        Assertions.assertEquals(false, valid);
+    }
+
 
 
 }
