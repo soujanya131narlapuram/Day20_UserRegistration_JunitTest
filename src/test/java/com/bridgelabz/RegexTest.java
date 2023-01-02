@@ -96,5 +96,35 @@ public class RegexTest {
         Assertions.assertEquals(false, valid);
     }
 
+    @Test
+    public void happyTestCases() {
+        boolean valid = Regex.firstNameValidation("Soujanya");
+        Assertions.assertEquals(true, valid);
+        valid = Regex.lastNameValidation("Narlapuram");
+        Assertions.assertEquals(true, valid);
+        valid = Regex.emailValidation("soujanya@gmail.com");
+        Assertions.assertEquals(true, valid);
+        valid = Regex.mobileNumberValidation("91 7382573349");
+        Assertions.assertEquals(true, valid);
+        valid = Regex.passwordValidation("Acdeg1hg");
+        Assertions.assertEquals(true, valid);
+
+    }
+    @Test
+    public void sadTestCases() {
+
+        boolean   valid = Regex.firstNameValidation("1234");
+        Assertions.assertEquals(false, valid);
+        valid = Regex.passwordValidation("cdefgh");
+        Assertions.assertEquals(false, valid);
+        valid = Regex.emailValidation("abc@abc@abc@gmail.com");
+        Assertions.assertEquals(false, valid);
+        valid = Regex.mobileNumberValidation("7894789056890789458");
+        Assertions.assertEquals(false, valid);
+        valid = Regex.lastNameValidation("Kolipaka");
+        Assertions.assertEquals(true, valid);
+
+    }
+
 
 }
